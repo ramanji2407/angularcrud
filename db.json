@@ -1,0 +1,26 @@
+{
+  "productList": [
+    {
+      "name": "apple",
+      "category": "vegetables",
+      "freshness": "BrandNew",
+      "price": 455,
+      "comment": "nice product",
+      "date": "2023-10-26T18:30:00.000Z",
+      "phoneNumber": [
+        "9392841920"
+      ],
+      "id": 1
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
