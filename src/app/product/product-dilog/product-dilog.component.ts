@@ -1,15 +1,15 @@
 import { Component,Inject,OnInit, inject } from '@angular/core';
 import { FormArray, FormControl, FormGroup, UntypedFormGroup, Validators } from '@angular/forms';
-import { UserServicesService } from '../services/user-services.service';
 import { MatDialogRef,MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { DialogComponent } from 'src/app/dialog/dialog.component';
+import { UserServicesService } from 'src/app/services/user-services.service';
 
 @Component({
-  selector: 'app-dialog',
-  templateUrl: './dialog.component.html',
-  styleUrls: ['./dialog.component.scss']
+  selector: 'app-product-dilog',
+  templateUrl: './product-dilog.component.html',
+  styleUrls: ['./product-dilog.component.scss']
 })
-export class DialogComponent implements OnInit
-{
+export class ProductDilogComponent {
   productForm!:FormGroup
   butoonName:string='save';
   formName:string='Add Product Form'
@@ -17,7 +17,7 @@ export class DialogComponent implements OnInit
  
   constructor(private api:UserServicesService ,
     @Inject(MAT_DIALOG_DATA) public editData:any,
-    private dialogRef:MatDialogRef<DialogComponent>)
+    private dialogRef:MatDialogRef<ProductDilogComponent>)
   {
 
   }
@@ -135,4 +135,5 @@ this.api.putProductDetails(this.productForm.value,this.editData.id).subscribe(
   }
 )
   }
+
 }

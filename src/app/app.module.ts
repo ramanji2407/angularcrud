@@ -19,7 +19,6 @@ import { HttpClientModule } from '@angular/common/http';
 import {MatTableModule} from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
-import { ProductDetailsComponent } from './product-details/product-details.component';
 import { ProductViewComponent } from './product-view/product-view.component';
 import { RouterModule } from '@angular/router';
 
@@ -30,7 +29,6 @@ import { RouterModule } from '@angular/router';
   declarations: [
     AppComponent,
     DialogComponent,
-    ProductDetailsComponent,
     ProductViewComponent
   ],
   imports: [

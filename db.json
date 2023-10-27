@@ -11,6 +11,42 @@
         "9392841920"
       ],
       "id": 1
+    },
+    {
+      "name": "ram",
+      "category": "fruits",
+      "freshness": "BrandNew",
+      "price": 234,
+      "comment": "qwe",
+      "date": "2023-10-25T18:30:00.000Z",
+      "phoneNumber": [
+        "9392841920"
+      ],
+      "id": 2
+    },
+    {
+      "name": "ram",
+      "category": "fruits",
+      "freshness": "BrandNew",
+      "price": 12333,
+      "comment": "huuu",
+      "date": "2023-10-27T18:30:00.000Z",
+      "phoneNumber": [
+        "9160536127"
+      ],
+      "id": 3
+    },
+    {
+      "name": "ajdshwo",
+      "category": "fruits",
+      "freshness": "BrandNew",
+      "price": 23,
+      "comment": "sds",
+      "date": "2023-10-29T18:30:00.000Z",
+      "phoneNumber": [
+        "9392841920"
+      ],
+      "id": 4
     }
   ],
   "comments": [

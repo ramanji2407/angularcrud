@@ -1,0 +1,132 @@
+<h1 mat-dialog-content> <strong>{{formName}}</strong> </h1>
+<div mat-dialog-content>
+  <form [formGroup]="productForm">
+    <mat-form-field class="example-full-width" appearance="outline">
+      <mat-label>Product Name</mat-label>
+      <input type="text" matInput formControlName="name" />
+      <mat-error
+        *ngIf="
+          this.productForm.get('name')?.touched &&
+          this.productForm.get('name')?.errors
+        "
+      >
+        Name is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="outline">
+      <mat-label>Product Category</mat-label>
+      <mat-select formControlName="category">
+        <mat-option value="fruits"> fruits </mat-option>
+        <mat-option value="vegetables"> vegetables </mat-option>
+        <mat-option value="electronics"> electronics </mat-option>
+      </mat-select>
+      <mat-error
+        *ngIf="
+          this.productForm.get('category')?.touched &&
+          this.productForm.get('category')?.errors
+        "
+      >
+        Category is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Choose a date</mat-label>
+      <input formControlName="date" matInput [matDatepicker]="picker" />
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle
+        matIconSuffix
+        [for]="picker"
+      ></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+      <mat-error
+        *ngIf="
+          this.productForm.get('date')?.touched &&
+          this.productForm.get('date')?.errors
+        "
+      >
+        Date is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+    <label> <h1>Product Freshness</h1></label>
+    <mat-radio-group formControlName="freshness" class="example-radio-group">
+      <mat-radio-button
+        class="example-radio-button"
+        *ngFor="let fresh of productFreshness"
+        [value]="fresh"
+      >
+        {{ fresh }}
+      </mat-radio-button>
+      <mat-error
+        *ngIf="
+          this.productForm.get('freshness')?.touched &&
+          this.productForm.get('freshness')?.errors
+        "
+      >
+        Freshness is <strong>required</strong>
+      </mat-error>
+    </mat-radio-group>
+
+    <mat-form-field class="example-full-width" appearance="outline">
+      <mat-label>Price</mat-label>
+      <input formControlName="price" type="number" matInput />
+      <mat-error
+        *ngIf="
+          this.productForm.get('price')?.touched &&
+          this.productForm.get('price')?.errors
+        "
+      >
+        Price is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Comments</mat-label>
+      <textarea formControlName="comment" matInput></textarea>
+      <mat-error
+        *ngIf="
+          this.productForm.get('comment')?.touched &&
+          this.productForm.get('comment')?.errors
+        "
+      >
+        Comment is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <div class="row1" formArrayName="phoneNumber">
+      <div *ngFor="let user of formDetails; let i = index">
+        <mat-form-field class="example-full-width" appearance="outline">
+          <mat-label>PhoneNumber</mat-label>
+          <input type="text" matInput [formControlName]="i" />
+          <mat-error *ngIf="productForm.get('phoneNumber')?.touched"
+            >Phone no required</mat-error
+          >
+        </mat-form-field>
+        <button
+          class="dbutton"
+          [disabled]="checkLength()"
+          mat-raised-button
+          color="warn"
+          (click)="deletPhoneNumber(i)"
+        >
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+      <button mat-raised-button color="primary" (click)="pushNewPhoneNumber()">
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
+  </form>
+</div>
+<div mat-dialog-actions [align]="'end'" class="dialogactions">
+  <button
+    mat-raised-button
+    color="primary"
+    [disabled]="productForm.invalid"
+    (click)="productDetails()"
+  >
+    {{ butoonName }}
+  </button>
+  <button mat-raised-button mat-dialog-close color="warn">Cancel</button>
+</div>
+

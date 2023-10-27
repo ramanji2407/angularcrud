@@ -32,7 +32,7 @@ export class AppComponent  implements OnInit{
   }
   openDailog()
   {
-    this.router.navigate(['/','create']);
+//this.router.navigate(['/create']);
 
     this.dialog.open(DialogComponent,{
       width:'30%',
@@ -66,16 +66,16 @@ export class AppComponent  implements OnInit{
     row:any)
   {
     event.stopPropagation();
-    // this.dialog.open(DialogComponent,{
-    //   width:'30%',
-    //   data:row
-    // }).afterClosed().subscribe((val)=>{
-    //   if(val==='update')
-    //   {
-    //     this.getAllProductDetails()
-    //   }
-    // })
-    this.router.navigate(['create']);
+    this.dialog.open(DialogComponent,{
+      width:'30%',
+      data:row
+    }).afterClosed().subscribe((val)=>{
+      if(val==='update')
+      {
+        this.getAllProductDetails()
+      }
+    })
+   
   }
 
   deleteProduct( event :Event,id:number)
