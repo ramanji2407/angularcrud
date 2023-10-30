@@ -1,18 +1,22 @@
 
-<div><strong>Product Details of product id {{productDetails.id}}</strong>
-</div>
 
-  <p>Id:{{productDetails.id}}</p>
-
-  <p>Category:{{productDetails.category}}</p>
-
-  <p>Comment:{{productDetails.comment}}</p>
-
-  <p>Freshness:{{productDetails.freshness}}</p>
-
-  <p>Name:{{productDetails.name}}</p>
-
-  <p>Price:{{productDetails.price}}</p>
-
- <p>Date:{{productDetails.date|date}}</p>
+  <div class="block"><div><strong>Product Details of product id {{productDetails.id}}</strong>
+  </div>
   
+    <p>Id:{{productDetails.id}}</p>
+  
+    <p>Category:{{productDetails.category}}</p>
+  
+    <p>Comment:{{productDetails.comment}}</p>
+  
+    <p>Freshness:{{productDetails.freshness}}</p>
+  
+    <p>Name:{{productDetails.name}}</p>
+  
+    <p>Price:{{productDetails.price}}</p>
+  
+   <p>Date:{{productDetails.date|date}}</p>
+   <button mat-raised-button [routerLink]="['/']" color ="warn">Cancel</button>
+
+  
+  </div>

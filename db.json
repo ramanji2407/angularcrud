@@ -1,10 +1,10 @@
 {
   "productList": [
     {
-      "name": "apple",
-      "category": "vegetables",
+      "name": "apple mobiles",
+      "category": "electronics",
       "freshness": "BrandNew",
-      "price": 455,
+      "price": 5000,
       "comment": "nice product",
       "date": "2023-10-26T18:30:00.000Z",
       "phoneNumber": [
@@ -13,40 +13,28 @@
       "id": 1
     },
     {
-      "name": "ram",
-      "category": "fruits",
+      "name": "mobile",
+      "category": "electronics",
       "freshness": "BrandNew",
-      "price": 234,
-      "comment": "qwe",
-      "date": "2023-10-25T18:30:00.000Z",
+      "price": 3000,
+      "comment": "nice camers=a",
+      "date": "2023-10-24T18:30:00.000Z",
       "phoneNumber": [
         "9392841920"
       ],
       "id": 2
     },
     {
-      "name": "ram",
+      "name": "apple",
       "category": "fruits",
       "freshness": "BrandNew",
-      "price": 12333,
-      "comment": "huuu",
-      "date": "2023-10-27T18:30:00.000Z",
-      "phoneNumber": [
-        "9160536127"
-      ],
-      "id": 3
-    },
-    {
-      "name": "ajdshwo",
-      "category": "fruits",
-      "freshness": "BrandNew",
-      "price": 23,
-      "comment": "sds",
-      "date": "2023-10-29T18:30:00.000Z",
+      "price": 2333,
+      "comment": "s",
+      "date": "2023-10-26T18:30:00.000Z",
       "phoneNumber": [
         "9392841920"
       ],
-      "id": 4
+      "id": 3
     }
   ],
   "comments": [

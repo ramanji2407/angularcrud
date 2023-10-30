@@ -27,4 +27,9 @@ return this.http.put<any>("http://localhost:3000/productList/"+id,data)
     return this.http.delete<any>("http://localhost:3000/productList/"+id)
 
   }
+  getProductDetailsById(id:number)
+  {
+    return this.http.get<any>("http://localhost:3000/productList/"+id)
+
+  }
 }

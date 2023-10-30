@@ -1,8 +1,11 @@
-import { Component,Inject,OnInit, inject } from '@angular/core';
+import { Component,Inject,OnInit, Optional, inject } from '@angular/core';
 import { FormArray, FormControl, FormGroup, UntypedFormGroup, Validators } from '@angular/forms';
 import { MatDialogRef,MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { DialogComponent } from 'src/app/dialog/dialog.component';
 import { UserServicesService } from 'src/app/services/user-services.service';
+import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
+import { ProductComponent } from '../product.component';
 
 @Component({
   selector: 'app-product-dilog',
@@ -13,15 +16,31 @@ export class ProductDilogComponent {
   productForm!:FormGroup
   butoonName:string='save';
   formName:string='Add Product Form'
-  productFreshness:string[]=['BrandNew','SecondHand','Refurbished']
+  productFreshness:string[]=['BrandNew','SecondHand','Refurbished'];
+  id:number=0;
+  editData:any;
  
   constructor(private api:UserServicesService ,
-    @Inject(MAT_DIALOG_DATA) public editData:any,
-    private dialogRef:MatDialogRef<ProductDilogComponent>)
+    //@Inject(MAT_DIALOG_DATA) public editData:any,
+    private product:ProductComponent,
+    @Optional()private dialogRef:MatDialogRef<ProductDilogComponent>,
+    private router: Router,
+    private activatedRouter :ActivatedRoute
+    )
   {
+    this.activatedRouter.params.subscribe((val)=>{
+      console.log(this.id);
 
+      this.id=val['id']
+      console.log( this.id);
+      
+      
+    })
   }
   ngOnInit(): void {
+
+   
+    
    this.productForm=new UntypedFormGroup({
     name:new FormControl('',[Validators.required]),
     category:new FormControl('',[Validators.required]),
@@ -34,19 +53,40 @@ new FormControl('',[Validators.required])
     ])
 
    })
-   if(this.editData)
+   if( this.id>0)
    {
     this.butoonName="update"
     this.formName="Update Form"
    // console.log(this.editData);
-    
+    this.api.getProductDetailsById(this.id).subscribe({
+      next:(result)=>{
+        ///console.log(result);
+        this.editData=result;
+       console.log( this.editData);
+       this.setValue();
+        
+        
+      },
+      error:()=>{
+        alert("error while getting details of"+this.id)
+      }
+    })
     
     //this.productForm.controls['phoneNumber'].setValue(this.editData.phoneNumber);
-      this.setValue();
+      
     
 
    }
+  
     
+  }
+  keyCheck(event:KeyboardEvent)
+  {
+    console.log(event.key);
+    
+    if (event.key === 'e' || event.key === 'E') {
+      event.preventDefault();
+    }
   }
   get formDetails()
   {
@@ -54,6 +94,9 @@ new FormControl('',[Validators.required])
   }
 
   setValue(){
+    
+    console.log(this.editData);
+    
     this.productForm.controls['name'].setValue(this.editData.name),
     this.productForm.controls['freshness'].setValue(this.editData.freshness),
     this.productForm.controls['category'].setValue(this.editData.category),
@@ -90,10 +133,11 @@ new FormControl('',[Validators.required])
   checkLength(): boolean {
     return (this.productForm.get('phoneNumber') as FormArray).length === 1;
   }
-  productDetails()
+  postProductDetails()
   {
-    if(!this.editData)
-    {
+    
+     if(this.id===undefined)
+     {
       if(this.productForm.valid)
     {
       console.log(this.productForm.value);
@@ -103,6 +147,9 @@ new FormControl('',[Validators.required])
         {
           alert("product details sucessfully added")
           this.productForm.reset()
+          this.product.getAllProductDetails()
+          this.router.navigateByUrl('/')
+
           this.dialogRef.close('save')
         },
         error:()=>
@@ -114,6 +161,7 @@ new FormControl('',[Validators.required])
     
     }
     else{
+      
       this.updateDeatails()
     }
   }
@@ -125,6 +173,10 @@ this.api.putProductDetails(this.productForm.value,this.editData.id).subscribe(
     next:(res)=>{
       alert('updated product details sucessfully')
       this.productForm.reset()
+      this.product.getAllProductDetails()
+      this.router.navigateByUrl('/')
+      
+
       this.dialogRef.close('update')
       
     },

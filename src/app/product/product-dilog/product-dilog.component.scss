@@ -14,5 +14,56 @@ mat-form-field{
     
   }
   .dialogactions{
-    margin-right: 25px;
+    margin-right: 15px;
+    align-self: flex-end; 
   }
+  /* your-dialog.component.css */
+  .dialog-container{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    overflow-y: scroll;
+    max-height: 500px; /* Set a maximum height for the container */
+    overflow-y: scroll; /* Enable vertical scrolling */
+    padding: 10px; /* Add some padding for spacing */
+    border: 1px solid #ccc;
+}
+// .dialogactions {
+//   display: flex;
+//   justify-content: flex-end;
+//   align-items: flex-end;
+//   margin-top: 4px;
+//   gap: 5px;
+// }
+.dialogactions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.dialogactions button {
+  margin-left: 10px; /* Adjust the margin to control the space between buttons */
+}
+.form-field-container {
+  display: flex;
+  align-items: center;
+}
+
+.dbutton {
+  /* Allow the form field to grow and take available space */
+  margin-left: 10px;
+padding: 5px;
+width: 50px;
+height: 50px;
+margin-bottom: 17px;
+   /* Add spacing between form field and delete button */
+}
+
+
+
+
