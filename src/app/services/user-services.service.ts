@@ -22,7 +22,7 @@ export class UserServicesService {
   {
 return this.http.put<any>("http://localhost:3000/productList/"+id,data)
   }
-  dleteProduct (id:number)
+  dleteProduct (id:number):Observable<any>
   {
     return this.http.delete<any>("http://localhost:3000/productList/"+id)
 

@@ -1,0 +1,36 @@
+<mat-toolbar color="primary">
+  <button
+    mat-icon-button
+    class="example-icon"
+    aria-label="Example icon-button with menu icon"
+  >
+    <mat-icon>supervised_user_circle</mat-icon>
+  </button>
+  <span>My App</span>
+  <span class="example-spacer"></span>
+</mat-toolbar>
+
+<mat-drawer-container class="example-container">
+  <mat-drawer mode="side" opened>
+    <div><button
+        mat-raised-button
+        (click)="openListComponent()"
+        class="products"
+        color="primary"
+      >
+        Products
+      </button></div>
+    <button
+      mat-raised-button
+      
+      class="users"
+      color="primary"
+    >
+      Users
+    </button>
+   
+  </mat-drawer>
+  <mat-drawer-content>
+    <router-outlet></router-outlet>
+  </mat-drawer-content>
+</mat-drawer-container>

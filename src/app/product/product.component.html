@@ -1,17 +1,4 @@
-<mat-toolbar color="primary">
-    <button
-      mat-icon-button
-      class="example-icon"
-      aria-label="Example icon-button with menu icon"
-    >
-      <mat-icon>supervised_user_circle</mat-icon>
-    </button>
-    <span>My App</span>
-    <span class="example-spacer"></span>
-    <button mat-raised-button color="warn"  (click)="openDailog()">
-      Add Product
-    </button>
-  </mat-toolbar>
+
   <div class="table">
     <div class="table1">
       <mat-form-field>
@@ -99,5 +86,13 @@
       
     </div>
   </div>
+  <div class="button-container"> <button mat-raised-button color="primary" class="addButton" (click)="openDailog()">
+    Add Product
+  </button>
+  <button mat-raised-button [routerLink]="['/']" routerLinkActive="router-link-active"  color="warn" class="cancelButton">
+   Cancel
+  </button></div>
+ 
+  <!-- <h2 #name>ramanji</h2> -->
   <router-outlet></router-outlet>
   

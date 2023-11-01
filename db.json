@@ -1,19 +1,7 @@
 {
   "productList": [
     {
-      "name": "apple mobiles",
-      "category": "electronics",
-      "freshness": "BrandNew",
-      "price": 5000,
-      "comment": "nice product",
-      "date": "2023-10-26T18:30:00.000Z",
-      "phoneNumber": [
-        "9392841920"
-      ],
-      "id": 1
-    },
-    {
-      "name": "mobile",
+      "name": "mobiles",
       "category": "electronics",
       "freshness": "BrandNew",
       "price": 3000,
@@ -35,6 +23,18 @@
         "9392841920"
       ],
       "id": 3
+    },
+    {
+      "name": "blueberrys",
+      "category": "vegetables",
+      "freshness": "BrandNew",
+      "price": 234,
+      "comment": "fresh",
+      "date": "2023-10-30T18:30:00.000Z",
+      "phoneNumber": [
+        9392841920
+      ],
+      "id": 4
     }
   ],
   "comments": [

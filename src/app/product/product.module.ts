@@ -21,13 +21,16 @@ import { RouterModule } from '@angular/router';
 import { ProductDilogComponent } from './product-dilog/product-dilog.component';
 import { PostComponentComponent } from './post-component/post-component.component';
 import { MatDialogRef,MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { SideNavComponent } from './side-nav/side-nav.component';
+import {MatSidenavModule} from '@angular/material/sidenav';
 
 
 @NgModule({
   declarations: [
     ProductComponent,
     ProductDilogComponent,
-    PostComponentComponent
+    PostComponentComponent,
+    SideNavComponent
   ],
   imports: [
     CommonModule,
@@ -44,7 +47,8 @@ import { MatDialogRef,MAT_DIALOG_DATA } from '@angular/material/dialog';
     HttpClientModule,
     MatTableModule,MatPaginatorModule,
     MatSortModule,
-    RouterModule
+    RouterModule,
+    MatSidenavModule
     
   ]
 })

@@ -15,12 +15,13 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
 import {MatRadioModule} from '@angular/material/radio';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import {MatTableModule} from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { ProductViewComponent } from './product-view/product-view.component';
 import { RouterModule } from '@angular/router';
+import { CommonInterceptor } from './common.interceptor';
 
 
 
@@ -49,7 +50,7 @@ import { RouterModule } from '@angular/router';
     MatSortModule,
     RouterModule
   ],
-  providers: [],
+  providers: [{provide:HTTP_INTERCEPTORS,useClass:CommonInterceptor,multi:true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

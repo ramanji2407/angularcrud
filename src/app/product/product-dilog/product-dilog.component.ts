@@ -148,7 +148,7 @@ new FormControl('',[Validators.required])
           alert("product details sucessfully added")
           this.productForm.reset()
           this.product.getAllProductDetails()
-          this.router.navigateByUrl('/')
+          this.router.navigateByUrl('/dashboard/list')
 
           this.dialogRef.close('save')
         },
@@ -174,7 +174,7 @@ this.api.putProductDetails(this.productForm.value,this.editData.id).subscribe(
       alert('updated product details sucessfully')
       this.productForm.reset()
       this.product.getAllProductDetails()
-      this.router.navigateByUrl('/')
+      this.router.navigateByUrl('/dashboard/list')
       
 
       this.dialogRef.close('update')

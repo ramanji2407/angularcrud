@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import {
   MatDialog,
   MAT_DIALOG_DATA,
@@ -40,22 +40,23 @@ export class ProductComponent {
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
+  @ViewChild('name') name!: ElementRef;
   constructor(
     private dialog: MatDialog,
     private api: UserServicesService,
     private router: Router,
     private activatedRoute: ActivatedRoute
   ) {
-    this.activatedRoute.params.subscribe((val) => {
-      console.log(val);
-    });
+    // this.activatedRoute.params.subscribe((val) => {
+    //   console.log(val);
+    // });
   }
   ngOnInit(): void {
     this.getAllProductDetails();
   }
   openDailog() {
     //this.value=true
-    this.router.navigateByUrl('dashboard/create');
+    this.router.navigateByUrl('dashboard/list/create');
     // this.dialog
     //     .open(ProductDilogComponent, {
     //       width: '30%',
@@ -69,7 +70,10 @@ export class ProductComponent {
     //       }
     //     });
   }
-
+  ngAfterViewInit(): void {
+    //  const result= this.name.nativeElement.innerHTML
+    //  console.log(result);
+  }
   getAllProductDetails() {
     this.api.getProductDetails().subscribe({
       next: (res) => {
@@ -84,7 +88,7 @@ export class ProductComponent {
   }
   editProductDetails(event: Event, row: any) {
     event.stopPropagation();
-    this.router.navigateByUrl('dashboard/update/' + row.id);
+    this.router.navigateByUrl('dashboard/list/update/' + row.id);
 
     // this.dialog
     //   .open(ProductDilogComponent, {
@@ -99,7 +103,6 @@ export class ProductComponent {
     //         this.router.navigateByUrl('/');
     //       }
     //     });
-    
   }
 
   deleteProduct(event: Event, id: number) {
@@ -129,7 +132,7 @@ export class ProductComponent {
 
   demo(row: any): void {
     console.log(row);
-    this.router.navigateByUrl('dashboard/product/' + row.id);
+    this.router.navigateByUrl('dashboard/list/product/' + row.id);
 
     // this.dialog.open(ProductViewComponent, {
     //   width: '30%',

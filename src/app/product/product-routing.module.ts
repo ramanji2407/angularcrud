@@ -4,21 +4,29 @@ import { ProductComponent } from './product.component';
 import { ProductDilogComponent } from './product-dilog/product-dilog.component';
 import { PostComponentComponent } from './post-component/post-component.component';
 import { ProductViewComponent } from '../product-view/product-view.component';
+import { SideNavComponent } from './side-nav/side-nav.component';
 
 const routes: Routes = [
   // { path: '', component: ProductComponent },
   // { path: 'create', component: ProductDilogComponent },
   // { path: 'product/:id', component: ProductComponent },
   // // { path: 'update/:id', component: ProductDilogComponent },
+
   { path: 'delete/:id', component: ProductComponent },
 
   {
     path: 'dashboard',
-    component: ProductComponent,
+    component: SideNavComponent,
     children: [
-      { path: 'create', component: ProductDilogComponent },
-      { path: 'update/:id', component: ProductDilogComponent },
-      { path: 'product/:id', component: ProductViewComponent },
+      {
+        path: 'list',
+        component: ProductComponent,
+        children: [
+          { path: 'create', component: ProductDilogComponent },
+          { path: 'update/:id', component: ProductDilogComponent },
+          { path: 'product/:id', component: ProductViewComponent },
+        ],
+      },
     ],
   },
   {

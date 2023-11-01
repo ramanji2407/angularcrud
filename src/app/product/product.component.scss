@@ -14,3 +14,22 @@
     max-width: 1200px;
     margin: 0 auto;
  }
+ 
+//   .addButton {
+//     margin-top: 20px;
+//     margin-left: 850px;
+//   }
+//  .cancelButton{
+//   margin-left: 1000px;
+//   margin-bottom: 600px;
+//  }
+ .addButton, .cancelButton {
+  display: inline-block;
+  margin-left: 10px; /* Adjust the margin to control the spacing between the buttons */
+}
+.button-container {
+  margin-top: 80px;
+  margin-right: 10px;
+  display: flex;
+  justify-content: flex-end;
+}
