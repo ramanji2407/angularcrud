@@ -2,11 +2,11 @@
   "productList": [
     {
       "name": "mobiles",
-      "category": "electronics",
+      "category": "fruits",
       "freshness": "BrandNew",
-      "price": 3000,
+      "price": 3002,
       "comment": "nice camers=a",
-      "date": "2023-10-24T18:30:00.000Z",
+      "date": "2023-10-23T18:30:00.000Z",
       "phoneNumber": [
         "9392841920"
       ],
@@ -35,6 +35,18 @@
         9392841920
       ],
       "id": 4
+    },
+    {
+      "name": "grapes",
+      "category": "fruits",
+      "freshness": "BrandNew",
+      "price": 234,
+      "comment": "nice",
+      "date": "2023-11-22T18:30:00.000Z",
+      "phoneNumber": [
+        9392841920
+      ],
+      "id": 5
     }
   ],
   "comments": [
