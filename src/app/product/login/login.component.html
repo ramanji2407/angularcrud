@@ -1,0 +1,48 @@
+<mat-card class="card">
+  <mat-card-content>
+    <div class="login">
+      <h1>Login</h1>
+    </div>
+
+    <form [formGroup]="loginForm">
+      <div class="fields">
+        <mat-form-field class="example-full-width" appearance="outline">
+          <mat-label>UserName</mat-label>
+
+          <input type="text" matInput formControlName="userName" />
+          <mat-error *ngIf="
+              loginForm.get('userName')?.touched &&
+              loginForm.get('userName')?.errors
+            ">
+            UserName is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="outline">
+          <mat-label>Password</mat-label>
+          <input type="password" matInput formControlName="password" />
+          <mat-error *ngIf="
+              loginForm.get('password')?.touched &&
+              loginForm.get('password')?.errors
+            ">
+            PassWord is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+        <div>
+          <button mat-raised-button color="primary" [disabled]="loginForm.invalid" (click)="openDashboard()">
+            LOGIN
+          </button>
+        </div>
+
+        <div>
+          <!-- <button mat-raised-button color="primary" (click)="changePassword()">
+            Forget Password
+          </button> -->
+
+          <a class="link" [routerLink]="['/reset-password']" routerLinkActive="router-link-active">forgot password</a>
+        </div>
+
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>

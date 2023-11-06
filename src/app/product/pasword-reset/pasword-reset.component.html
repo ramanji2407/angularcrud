@@ -1,0 +1,41 @@
+<mat-card class="card">
+    <mat-card-content>
+        <div class="login">
+            <h1>Password Reset</h1>
+        </div>
+
+        <form [formGroup]="passwordrResetForm">
+            <div class="fields">
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>UserName</mat-label>
+
+                    <input type="text" matInput formControlName="userName" />
+                    <mat-error *ngIf="
+                passwordrResetForm.get('userName')?.touched &&
+                passwordrResetForm.get('userName')?.errors
+              ">
+                        UserName is <strong>required</strong>
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Password</mat-label>
+                    <input type="password" matInput formControlName="password" />
+                    <mat-error *ngIf="
+                passwordrResetForm.get('password')?.touched &&
+                passwordrResetForm.get('password')?.errors
+              ">
+                        PassWord is <strong>required</strong>
+                    </mat-error>
+                </mat-form-field>
+
+                <div>
+                    <button mat-raised-button color="primary" (click)="updatePassword()">
+                        UpdatePassword
+                    </button>
+
+                </div>
+            </div>
+        </form>
+    </mat-card-content>
+</mat-card>

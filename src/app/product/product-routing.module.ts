@@ -5,6 +5,13 @@ import { ProductDilogComponent } from './product-dilog/product-dilog.component';
 import { PostComponentComponent } from './post-component/post-component.component';
 import { ProductViewComponent } from '../product-view/product-view.component';
 import { SideNavComponent } from './side-nav/side-nav.component';
+import { ViewUsersComponent } from './view-users/view-users.component';
+import { UserComponent } from './user/user.component';
+import { authGuard } from '../auth.guard';
+import { LoginComponent } from './login/login.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { SignupComponent } from './signup/signup.component';
+import { PaswordResetComponent } from './pasword-reset/pasword-reset.component';
 
 const routes: Routes = [
   // { path: '', component: ProductComponent },
@@ -12,11 +19,13 @@ const routes: Routes = [
   // { path: 'product/:id', component: ProductComponent },
   // // { path: 'update/:id', component: ProductDilogComponent },
 
-  { path: 'delete/:id', component: ProductComponent },
+ // { path: 'delete/:id', component: ProductComponent },
 
   {
     path: 'dashboard',
     component: SideNavComponent,
+    canActivate:[authGuard],
+    
     children: [
       {
         path: 'list',
@@ -27,13 +36,45 @@ const routes: Routes = [
           { path: 'product/:id', component: ProductViewComponent },
         ],
       },
+      {
+        path: 'users',
+        component: ViewUsersComponent,
+        children: [
+          { path: 'create', component: PostComponentComponent },
+          { path: 'update/:id', component: PostComponentComponent },
+        ],
+      },
+
+      { path: 'user/:id', component: UserComponent },
     ],
   },
   {
     path: '',
-    redirectTo: 'dashboard',
-    pathMatch: 'full',
+    // redirectTo: 'dashboard',
+    // pathMatch: 'full',
+    component:DashboardComponent
   },
+  {
+    path: 'login',
+    // redirectTo: 'dashboard',
+    // pathMatch: 'full',
+    component:LoginComponent
+  },
+
+  {
+    path: 'signup',
+    // redirectTo: 'dashboard',
+    // pathMatch: 'full',
+    component:SignupComponent
+  },
+ 
+  {
+    path: 'reset-password',
+    // redirectTo: 'dashboard',
+    // pathMatch: 'full',
+    component:PaswordResetComponent
+  },
+
 ];
 
 @NgModule({

@@ -23,6 +23,15 @@ import { PostComponentComponent } from './post-component/post-component.componen
 import { MatDialogRef,MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { SideNavComponent } from './side-nav/side-nav.component';
 import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatStepperModule} from '@angular/material/stepper';
+import { ViewUsersComponent } from './view-users/view-users.component';
+import { UserComponent } from './user/user.component';
+import { FormsModule } from '@angular/forms';
+import { LoginComponent } from './login/login.component';
+import {MatCardModule} from '@angular/material/card';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { SignupComponent } from './signup/signup.component';
+import { PaswordResetComponent } from './pasword-reset/pasword-reset.component';
 
 
 @NgModule({
@@ -30,7 +39,13 @@ import {MatSidenavModule} from '@angular/material/sidenav';
     ProductComponent,
     ProductDilogComponent,
     PostComponentComponent,
-    SideNavComponent
+    SideNavComponent,
+    ViewUsersComponent,
+    UserComponent,
+    LoginComponent,
+    DashboardComponent,
+    SignupComponent,
+    PaswordResetComponent
   ],
   imports: [
     CommonModule,
@@ -48,8 +63,10 @@ import {MatSidenavModule} from '@angular/material/sidenav';
     MatTableModule,MatPaginatorModule,
     MatSortModule,
     RouterModule,
-    MatSidenavModule
-    
+    MatSidenavModule,
+    MatStepperModule,
+    FormsModule,
+    MatCardModule
   ]
 })
 export class ProductModule { }

@@ -1,14 +1,15 @@
 {
   "productList": [
     {
-      "name": "mobiles",
+      "name": "mobile",
       "category": "fruits",
       "freshness": "BrandNew",
       "price": 3002,
       "comment": "nice camers=a",
       "date": "2023-10-23T18:30:00.000Z",
       "phoneNumber": [
-        "9392841920"
+        "9392841920",
+        9392841929
       ],
       "id": 2
     },
@@ -25,7 +26,7 @@
       "id": 3
     },
     {
-      "name": "blueberrys",
+      "name": "blueberry",
       "category": "vegetables",
       "freshness": "BrandNew",
       "price": 234,
@@ -37,7 +38,7 @@
       "id": 4
     },
     {
-      "name": "grapes",
+      "name": "grape",
       "category": "fruits",
       "freshness": "BrandNew",
       "price": 234,
@@ -49,11 +50,11 @@
       "id": 5
     }
   ],
-  "comments": [
+  "users": [
     {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "firstName": "Ramanjaneyulu p",
+      "lastName": "Pasupuleti",
+      "id": 1
     }
   ],
   "profile": {

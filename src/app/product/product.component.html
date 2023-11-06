@@ -86,12 +86,14 @@
       
     </div>
   </div>
-  <div class="button-container"> <button mat-raised-button color="primary" class="addButton" (click)="openDailog()">
+  <div class="button-container"> 
+    <button mat-raised-button color="primary" class="addButton" (click)="openDailog()">
     Add Product
   </button>
   <button mat-raised-button [routerLink]="['/']" routerLinkActive="router-link-active"  color="warn" class="cancelButton">
    Cancel
-  </button></div>
+  </button>
+</div>
  
   <!-- <h2 #name>ramanji</h2> -->
   <router-outlet></router-outlet>

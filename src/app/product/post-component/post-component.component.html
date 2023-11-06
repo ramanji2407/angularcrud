@@ -1,0 +1,96 @@
+<div class="dialog-container">
+  <mat-stepper #stepper linear="true">
+    <mat-step [stepControl]="nameForm" errorMessage="Name Form is required.">
+      <form [formGroup]="nameForm">
+        <div class="edit">
+          <ng-template matStepLabel>Fill out your Name</ng-template>
+          <mat-form-field appearance="outline">
+            <mat-label>First Name</mat-label>
+            <input matInput placeholder=" First name" formControlName="firstName" required />
+            <mat-error *ngIf="
+                nameForm.get('firstName')?.touched &&
+                nameForm.get('firstName')?.errors
+              ">
+              FirstName is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="edit">
+          <mat-form-field appearance="outline">
+            <mat-label>Last Name</mat-label>
+            <input matInput placeholder="Last name" formControlName="lastName" required />
+
+            <mat-error *ngIf="
+                nameForm.get('lastName')?.touched &&
+                nameForm.get('lastName')?.errors
+              ">
+              LastName is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div>
+          <p>Go to a different step to see the error state</p>
+          <button mat-button matStepperNext [disabled]="nameForm.invalid">
+            Next
+          </button>
+          <button mat-button [routerLink]="['/dashboard/users']" routerLinkActive="router-link-active">
+            Cancel
+          </button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="adresssForm" errorMessage="Address is required.">
+      <form [formGroup]="adresssForm">
+        <ng-template matStepLabel>Fill out your address</ng-template>
+        <div class="edit">
+          <mat-form-field appearance="outline">
+            <mat-label>Address</mat-label>
+            <input matInput placeholder="Ex. 1 Main St, New York, NY" formControlName="adress" required />
+
+            <mat-error *ngIf="
+                adresssForm.get('adress')?.touched &&
+                adresssForm.get('adress')?.errors
+              ">
+              Address is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="edit">
+          <mat-form-field appearance="outline">
+            <mat-label>State</mat-label>
+            <input type="text" matInput placeholder="Andhra Pradesh" formControlName="state" required />
+
+            <mat-error *ngIf="
+                adresssForm.get('state')?.touched &&
+                adresssForm.get('state')?.errors
+              ">
+              State is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div>
+          <p>Go to a different step to see the error state</p>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext [disabled]="adresssForm.invalid">
+            Next
+          </button>
+          <button mat-button [routerLink]="['/dashboard/users']" routerLinkActive="router-link-active">
+            Cancel
+          </button>
+        </div>
+      </form>
+    </mat-step>
+
+    <mat-step>
+      <ng-template matStepLabel>Submit</ng-template>
+
+      <div class="submit">
+        <button mat-button matStepperPrevious color="">Back</button>
+        <button mat-button (click)="stepper.reset()">Reset</button>
+        <button mat-button (click)="getFormDetail()">{{buttonName}}</button>
+      </div>
+    </mat-step>
+  </mat-stepper>
+</div>

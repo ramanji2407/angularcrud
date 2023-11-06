@@ -1,0 +1,27 @@
+table {
+    width: 100%;
+  }
+  
+  .mat-mdc-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+  
+  td, th {
+    width: 25%;
+  }
+
+  .table{
+    max-width: 1200px;
+    margin: 0 auto;
+ }
+ .button-container {
+    margin-top: 80px;
+    margin-right: 10px;
+    display: flex;
+    justify-content: flex-end;
+  }
+  .addButton, .cancelButton {
+    display: inline-block;
+    margin-left: 10px; /* Adjust the margin to control the spacing between the buttons */
+  }

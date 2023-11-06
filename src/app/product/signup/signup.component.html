@@ -1,0 +1,40 @@
+<mat-card class="card">
+  <mat-card-content>
+    <div class="login">
+      <h1>Signup</h1>
+    </div>
+
+    <form [formGroup]="signupForm">
+      <div class="fields">
+        <mat-form-field class="example-full-width" appearance="outline">
+          <mat-label>UserName</mat-label>
+
+          <input type="text" matInput formControlName="userName" />
+          <mat-error *ngIf="
+              signupForm.get('userName')?.touched &&
+              signupForm.get('userName')?.errors
+            ">
+            UserName is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="outline">
+          <mat-label>Password</mat-label>
+          <input type="password" matInput formControlName="password" />
+          <mat-error *ngIf="
+              signupForm.get('password')?.touched &&
+              signupForm.get('password')?.errors
+            ">
+            PassWord is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+        <div>
+          <button mat-raised-button color="primary" [disabled]="signupForm.invalid" (click)="register()">
+            Register
+          </button>
+        </div>
+       
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>

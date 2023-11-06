@@ -1,0 +1,19 @@
+<div class="heading">
+  <h1 class="heading1">User details of Id : {{ id }}</h1>
+</div>
+
+<div class="data">
+  <p>Id:{{ userData.id }}</p>
+  <p>FirstName:{{ userData.firstName }}</p>
+  <p>LastName:{{ userData.lastName }}</p>
+</div>
+<div class="data">
+  <button
+    [routerLink]="['/dashboard/users']"
+    routerLinkActive="router-link-active"
+    mat-stroked-button
+    color="warn"
+  >
+    Cancel
+  </button>
+</div>

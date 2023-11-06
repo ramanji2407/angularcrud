@@ -8,29 +8,44 @@
   </button>
   <span>My App</span>
   <span class="example-spacer"></span>
+  <button
+  mat-icon-button
+  class="example"
+  aria-label="Example icon-button with menu icon"
+  (click)="logOut()"
+>
+<mat-icon>logout</mat-icon>
+</button>
+
 </mat-toolbar>
 
 <mat-drawer-container class="example-container">
   <mat-drawer mode="side" opened>
-    <div><button
-        mat-raised-button
-        (click)="openListComponent()"
-        class="products"
-        color="primary"
+    <!-- <div class="anchor">
+      <a
+        href=""
+        [routerLink]="['/dashboard/list']"
+        routerLinkActive="router-link-active"
+        >Products</a
       >
+    </div> -->
+
+    <div>
+      <button mat-button (click)="openListComponent()" class="products">
         Products
-      </button></div>
-    <button
-      mat-raised-button
-      
-      class="users"
-      color="primary"
-    >
-      Users
-    </button>
-   
+      </button>
+    </div>
+    <div><button mat-button [routerLink]="['/dashboard/users']" routerLinkActive="router-link-active" >Users</button></div>
+
+        <!-- <img class='dashboard' src="assets\Ecommerce web page-bro.png" alt="My image"> -->
+
   </mat-drawer>
   <mat-drawer-content>
+    <!-- <img class='dashboard' src="assets\Ecommerce web page-bro.png" alt="My image"> -->
+    <!-- <img src="assets/images/my-image.jpg" alt="My Image"> -->
+    <!-- <label for="">name</label>
+    <input type="text" [(ngModel)]="name">
+    <p>{{name}}</p> -->
     <router-outlet></router-outlet>
   </mat-drawer-content>
 </mat-drawer-container>

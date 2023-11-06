@@ -9,8 +9,8 @@
         <input type="text" matInput formControlName="name" />
         <mat-error
           *ngIf="
-            this.productForm.get('name')?.touched &&
-            this.productForm.get('name')?.errors
+            productForm.get('name')?.touched &&
+            productForm.get('name')?.errors
           "
         >
           Name is <strong>required</strong>
@@ -26,8 +26,8 @@
         </mat-select>
         <mat-error
           *ngIf="
-            this.productForm.get('category')?.touched &&
-            this.productForm.get('category')?.errors
+            productForm.get('category')?.touched &&
+            productForm.get('category')?.errors
           "
         >
           Category is <strong>required</strong>
@@ -44,8 +44,8 @@
         <mat-datepicker #picker></mat-datepicker>
         <mat-error
           *ngIf="
-            this.productForm.get('date')?.touched &&
-            this.productForm.get('date')?.errors
+            productForm.get('date')?.touched &&
+            productForm.get('date')?.errors
           "
         >
           Date is <strong>required</strong>
@@ -62,8 +62,8 @@
         </mat-radio-button>
         <mat-error
           *ngIf="
-            this.productForm.get('freshness')?.touched &&
-            this.productForm.get('freshness')?.errors
+            productForm.get('freshness')?.touched &&
+            productForm.get('freshness')?.errors
           "
         >
           Freshness is <strong>required</strong>
@@ -80,8 +80,8 @@
         />
         <mat-error
           *ngIf="
-            this.productForm.get('price')?.touched &&
-            this.productForm.get('price')?.errors
+            productForm.get('price')?.touched &&
+            productForm.get('price')?.errors
           "
         >
           Price is <strong>required</strong>
@@ -93,8 +93,8 @@
         <textarea formControlName="comment" matInput></textarea>
         <mat-error
           *ngIf="
-            this.productForm.get('comment')?.touched &&
-            this.productForm.get('comment')?.errors
+            productForm.get('comment')?.touched &&
+            productForm.get('comment')?.errors
           "
         >
           Comment is <strong>required</strong>

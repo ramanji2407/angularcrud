@@ -22,7 +22,7 @@ import { MatSortModule } from '@angular/material/sort';
 import { ProductViewComponent } from './product-view/product-view.component';
 import { RouterModule } from '@angular/router';
 import { CommonInterceptor } from './common.interceptor';
-
+import { NotfoundComponent } from './notfound/notfound.component';
 
 
 
@@ -30,7 +30,8 @@ import { CommonInterceptor } from './common.interceptor';
   declarations: [
     AppComponent,
     DialogComponent,
-    ProductViewComponent
+    ProductViewComponent,
+    NotfoundComponent,
   ],
   imports: [
     BrowserModule,
