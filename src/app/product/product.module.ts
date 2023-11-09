@@ -18,7 +18,7 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterModule } from '@angular/router';
-import { ProductDilogComponent } from './product-dilog/product-dilog.component';
+import { ProductDilogComponent } from './components/product-dialog/product-dilog.component';
 import { PostComponentComponent } from './post-component/post-component.component';
 import { MatDialogRef,MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { SideNavComponent } from './side-nav/side-nav.component';

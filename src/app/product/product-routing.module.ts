@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ProductComponent } from './product.component';
-import { ProductDilogComponent } from './product-dilog/product-dilog.component';
+import { ProductDilogComponent } from './components/product-dialog/product-dilog.component';
 import { PostComponentComponent } from './post-component/post-component.component';
-import { ProductViewComponent } from '../product-view/product-view.component';
+import { ProductViewComponent } from './components/product-view/product-view.component';
 import { SideNavComponent } from './side-nav/side-nav.component';
 import { ViewUsersComponent } from './view-users/view-users.component';
 import { UserComponent } from './user/user.component';

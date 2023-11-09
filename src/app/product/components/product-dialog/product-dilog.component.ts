@@ -11,7 +11,7 @@ import { DialogComponent } from 'src/app/dialog/dialog.component';
 import { UserServicesService } from 'src/app/services/user-services.service';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
-import { ProductComponent } from '../product.component';
+import { ProductComponent } from '../../product.component';
 
 @Component({
   selector: 'app-product-dilog',
@@ -23,7 +23,7 @@ export class ProductDilogComponent {
   butoonName: string = 'save';
   formName: string = 'Add Product Form';
   productFreshness: string[] = ['BrandNew', 'SecondHand', 'Refurbished'];
-  id: number = 0;
+  id!: number 
   editData: any;
 
   constructor(
@@ -42,33 +42,9 @@ export class ProductDilogComponent {
     });
   }
   ngOnInit(): void {
-    this.productForm = new UntypedFormGroup({
-      name: new FormControl('', [Validators.required]),
-      category: new FormControl('', [Validators.required]),
-      freshness: new FormControl('', [Validators.required]),
-      price: new FormControl('', [Validators.required]),
-      comment: new FormControl('', [Validators.required]),
-      date: new FormControl('', [Validators.required]),
-      phoneNumber: new FormArray([new FormControl('', [Validators.required])]),
-    });
-    if (this.id > 0) {
-      this.butoonName = 'update';
-      this.formName = 'Update Form';
-      // console.log(this.editData);
-      this.api.getProductDetailsById(this.id).subscribe({
-        next: (result) => {
-          ///console.log(result);
-          this.editData = result;
-          console.log(this.editData);
-          this.setValue();
-        },
-        error: () => {
-          alert('error while getting details of' + this.id);
-        },
-      });
 
-      //this.productForm.controls['phoneNumber'].setValue(this.editData.phoneNumber);
-    }
+  this.createForm()
+    
   }
   keyCheck(event: KeyboardEvent) {
     console.log(event.key);
@@ -110,7 +86,7 @@ export class ProductDilogComponent {
       ])
     );
   }
-  deletPhoneNumber(i: number) {
+  deletePhoneNumber(i: number) {
     (this.productForm.get('phoneNumber') as FormArray)?.removeAt(i);
   }
 
@@ -118,7 +94,7 @@ export class ProductDilogComponent {
     return (this.productForm.get('phoneNumber') as FormArray).length === 1;
   }
   postProductDetails() {
-    if (this.id === undefined) {
+    if (!this.id) {
       if (this.productForm.valid) {
         console.log(this.productForm.value);
 
@@ -157,5 +133,37 @@ export class ProductDilogComponent {
           alert('error while uploading details');
         },
       });
+  }
+
+
+  createForm()
+  {
+    this.productForm = new UntypedFormGroup({
+      name: new FormControl('', [Validators.required]),
+      category: new FormControl('', [Validators.required]),
+      freshness: new FormControl('', [Validators.required]),
+      price: new FormControl('', [Validators.required]),
+      comment: new FormControl('', [Validators.required]),
+      date: new FormControl('', [Validators.required]),
+      phoneNumber: new FormArray([new FormControl('', [Validators.required])]),
+    });
+    if (this.id) {
+      this.butoonName = 'update';
+      this.formName = 'Update Form';
+      // console.log(this.editData);
+      this.api.getProductDetailsById(this.id).subscribe({
+        next: (result) => {
+          ///console.log(result);
+          this.editData = result;
+          console.log(this.editData);
+          this.setValue();
+        },
+        error: () => {
+          alert('error while getting details of' + this.id);
+        },
+      });
+
+      //this.productForm.controls['phoneNumber'].setValue(this.editData.phoneNumber);
+    }
   }
 }

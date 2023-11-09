@@ -1,22 +1,12 @@
 <mat-toolbar color="primary">
-  <button
-    mat-icon-button
-    class="example-icon"
-    aria-label="Example icon-button with menu icon"
-  >
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
     <mat-icon>supervised_user_circle</mat-icon>
   </button>
   <span>My App</span>
   <span class="example-spacer"></span>
-  <button
-  mat-icon-button
-  class="example"
-  aria-label="Example icon-button with menu icon"
-  (click)="logOut()"
->
-<mat-icon>logout</mat-icon>
-</button>
-
+  <button mat-icon-button class="example" aria-label="Example icon-button with menu icon" (click)="logOut()">
+    <mat-icon>logout</mat-icon>
+  </button>
 </mat-toolbar>
 
 <mat-drawer-container class="example-container">
@@ -35,10 +25,13 @@
         Products
       </button>
     </div>
-    <div><button mat-button [routerLink]="['/dashboard/users']" routerLinkActive="router-link-active" >Users</button></div>
+    <div>
+      <button mat-button [routerLink]="['/dashboard/users']" routerLinkActive="router-link-active">
+        Users
+      </button>
+    </div>
 
-        <!-- <img class='dashboard' src="assets\Ecommerce web page-bro.png" alt="My image"> -->
-
+    <!-- <img class='dashboard' src="assets\Ecommerce web page-bro.png" alt="My image"> -->
   </mat-drawer>
   <mat-drawer-content>
     <!-- <img class='dashboard' src="assets\Ecommerce web page-bro.png" alt="My image"> -->

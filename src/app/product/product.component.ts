@@ -14,15 +14,20 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { Router } from '@angular/router';
 import { UserServicesService } from '../services/user-services.service';
 import { DialogComponent } from '../dialog/dialog.component';
-import { ProductViewComponent } from '../product-view/product-view.component';
-import { ProductDilogComponent } from './product-dilog/product-dilog.component';
+import { ProductViewComponent, product } from './components/product-view/product-view.component';
+import { ProductDilogComponent } from './components/product-dialog/product-dilog.component';
 import { ActivatedRoute } from '@angular/router';
+
+
+
+
 
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
   styleUrls: ['./product.component.scss'],
 })
+
 export class ProductComponent {
   title = 'crud';
   //value:boolean=false
@@ -130,7 +135,7 @@ export class ProductComponent {
     }
   }
 
-  demo(row: any): void {
+  productDetail(row: product): void {
     console.log(row);
     this.router.navigateByUrl('dashboard/list/product/' + row.id);
 

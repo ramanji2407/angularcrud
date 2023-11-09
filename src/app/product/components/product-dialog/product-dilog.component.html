@@ -123,7 +123,7 @@
             [disabled]="checkLength()"
             mat-raised-button
             color="warn"
-            (click)="deletPhoneNumber(i)"
+            (click)="deletePhoneNumber(i)"
           >
             <mat-icon>delete</mat-icon>
           </button>
@@ -142,10 +142,10 @@
     <button
       mat-raised-button
       color="primary"
-      [disabled]="productForm.invalid"
+      [disabled]="productForm.invalid || !productForm.dirty"
       (click)="postProductDetails()"
     >
-      {{ butoonName }}
+      {{ editData?"update" :"save"}}
     </button>
     <button mat-raised-button [routerLink]="['/dashboard/list']" color="warn">Cancel</button>
   </div>

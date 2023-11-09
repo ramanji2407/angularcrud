@@ -26,6 +26,8 @@ export class SideNavComponent {
   }
   logOut()
   {
+    console.log(localStorage);
+    
     localStorage.clear()
     this.router.navigateByUrl('/')
   }

@@ -33,7 +33,7 @@ return this.http.put<any>("http://localhost:3000/productList/"+id,data)
     return this.http.get<any>("http://localhost:3000/productList/"+id)
 
   }
-  postProductDetailsUsers(data :any):Observable<any>
+  postUserDetails(data :any):Observable<any>
   {
     return this.http.post<any>("http://localhost:3000/users",data)
   }

@@ -31,7 +31,7 @@
 
         <div>
           <p>Go to a different step to see the error state</p>
-          <button mat-button matStepperNext [disabled]="nameForm.invalid">
+          <button mat-button matStepperNext [disabled]="nameForm.invalid || !nameForm.dirty">
             Next
           </button>
           <button mat-button [routerLink]="['/dashboard/users']" routerLinkActive="router-link-active">
@@ -40,7 +40,7 @@
         </div>
       </form>
     </mat-step>
-    <mat-step [stepControl]="adresssForm" errorMessage="Address is required.">
+    <!-- <mat-step [stepControl]="adresssForm" errorMessage="Address is required.">
       <form [formGroup]="adresssForm">
         <ng-template matStepLabel>Fill out your address</ng-template>
         <div class="edit">
@@ -81,7 +81,7 @@
           </button>
         </div>
       </form>
-    </mat-step>
+    </mat-step> -->
 
     <mat-step>
       <ng-template matStepLabel>Submit</ng-template>

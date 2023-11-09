@@ -19,7 +19,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import {MatTableModule} from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
-import { ProductViewComponent } from './product-view/product-view.component';
+import { ProductViewComponent } from './product/components/product-view/product-view.component';
 import { RouterModule } from '@angular/router';
 import { CommonInterceptor } from './common.interceptor';
 import { NotfoundComponent } from './notfound/notfound.component';

@@ -9,7 +9,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 
 import { Router } from '@angular/router';
-import { ProductViewComponent } from './product-view/product-view.component';
+import { ProductViewComponent } from './product/components/product-view/product-view.component';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

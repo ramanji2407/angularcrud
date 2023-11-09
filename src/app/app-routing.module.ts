@@ -11,6 +11,8 @@ const routes: Routes = [
   //   component:DialogComponent
   // },
   { path: '', loadChildren: () => import('./product/product.module').then(m => m.ProductModule) },
+  { path: 'user', loadChildren: () => import('./user/user.module').then(m => m.UserModule) },
+  { path: 'login-signup', loadChildren: () => import('./login-signup/login-signup.module').then(m => m.LoginSignupModule) },
   {path:'**',component:NotfoundComponent}
   
   

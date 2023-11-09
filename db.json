@@ -5,7 +5,7 @@
       "category": "fruits",
       "freshness": "BrandNew",
       "price": 3002,
-      "comment": "nice camers=a",
+      "comment": "nice camea",
       "date": "2023-10-23T18:30:00.000Z",
       "phoneNumber": [
         "9392841920",
@@ -55,6 +55,11 @@
       "firstName": "Ramanjaneyulu p",
       "lastName": "Pasupuleti",
       "id": 1
+    },
+    {
+      "firstName": "pavan kumar",
+      "lastName": "pasupuleti",
+      "id": 2
     }
   ],
   "profile": {

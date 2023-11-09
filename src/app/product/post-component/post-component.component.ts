@@ -15,12 +15,12 @@ export class PostComponentComponent implements OnInit {
   adresssForm!: FormGroup;
   @ViewChild('stepper') myStepper!: MatStepper;
 
-  id: number = 0;
+  id!: number;
   editData: any;
   buttonName: string = 'Submit';
 
   constructor(
-    private api: UserServicesService,
+    private userService: UserServicesService,
     private router: Router,
     private view: ViewUsersComponent,
     private activatedRoute: ActivatedRoute
@@ -33,36 +33,14 @@ export class PostComponentComponent implements OnInit {
     });
   }
   ngOnInit(): void {
-    this.nameForm = new FormGroup({
-      firstName: new FormControl('', [Validators.required]),
-      lastName: new FormControl('', [Validators.required]),
-    });
-    this.adresssForm = new FormGroup({
-      adress: new FormControl('', [Validators.required]),
-      state: new FormControl('', [Validators.required]),
-    });
-
-    if (this.id > 0) {
-      this.buttonName = 'update';
-      this.api.getUserDetailsById(this.id).subscribe({
-        next: (result) => {
-          ///console.log(result);
-          this.editData = result;
-          console.log(this.editData);
-          this.setValue();
-        },
-        error: () => {
-          alert('error while getting details of' + this.id);
-        },
-      });
-    }
+   this.createForm()
   }
 
   getFormDetail() {
     console.log(this.adresssForm.value);
     console.log(this.nameForm.value);
-    if (this.id === undefined) {
-      this.api.postProductDetailsUsers(this.nameForm.value).subscribe({
+    if (!this.id ) {
+      this.userService.postUserDetails(this.nameForm.value).subscribe({
         next: (response) => {
           alert('sucessfully added users');
 
@@ -82,7 +60,7 @@ export class PostComponentComponent implements OnInit {
 
   updateUser() {
 
-    this.api.putUserDetails(this.nameForm.value,this.editData.id).subscribe({
+    this.userService.putUserDetails(this.nameForm.value,this.editData.id).subscribe({
       next: (res) => {
         alert('updated product details sucessfully');
        
@@ -100,5 +78,32 @@ export class PostComponentComponent implements OnInit {
   setValue() {
     this.nameForm.controls['firstName'].setValue(this.editData.firstName);
     this.nameForm.controls['lastName'].setValue(this.editData.lastName);
+  }
+
+  createForm()
+  {
+    this.nameForm = new FormGroup({
+      firstName: new FormControl('', [Validators.required]),
+      lastName: new FormControl('', [Validators.required]),
+    });
+    // this.adresssForm = new FormGroup({
+    //   adress: new FormControl('', [Validators.required]),
+    //   state: new FormControl('', [Validators.required]),
+    // });
+
+    if (this.id) {
+      this.buttonName = 'update';
+      this.userService.getUserDetailsById(this.id).subscribe({
+        next: (result) => {
+          ///console.log(result);
+          this.editData = result;
+          console.log(this.editData);
+          this.setValue();
+        },
+        error: () => {
+          alert('error while getting details of' + this.id);
+        },
+      });
+    }
   }
 }

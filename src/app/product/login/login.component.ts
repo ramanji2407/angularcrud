@@ -36,9 +36,11 @@ export class LoginComponent {
      localStorage.setItem('userdetails',JSON.stringify(this.loginForm.value))
 
      
-       // console.log('userfound')
+        //console.log(userdetails)
       },
       error:(res)=>{
+        console.log(res);
+        
        // console.log(res.error.message[0]);
         // const response:string=res.error.message[0]
         alert('User credentials wrong');

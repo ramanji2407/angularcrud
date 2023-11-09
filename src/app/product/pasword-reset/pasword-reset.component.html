@@ -1,41 +1,75 @@
 <mat-card class="card">
-    <mat-card-content>
-        <div class="login">
-            <h1>Password Reset</h1>
+  <mat-card-content>
+    <div class="login">
+      <h1>Reset Password</h1>
+    </div>
+
+    <form [formGroup]="passwordrResetForm">
+      <div class="fields">
+        <mat-form-field class="example-full-width" appearance="outline">
+          <mat-label>UserName</mat-label>
+
+          <input type="text" matInput formControlName="userName" />
+          <mat-error
+            *ngIf="
+              passwordrResetForm.get('userName')?.touched &&
+              passwordrResetForm.get('userName')?.errors
+            "
+          >
+            UserName is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="outline">
+          <mat-label>Password</mat-label>
+          <input type="password" matInput formControlName="password" />
+          <mat-error
+            *ngIf="
+              passwordrResetForm.get('password')?.touched &&
+              passwordrResetForm.get('password')?.errors
+            "
+          >
+            Password is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="outline">
+          <mat-label>Re-Enter-Password</mat-label>
+          <input type="password" matInput formControlName="reenterPassword" />
+          <mat-error
+            *ngIf="passwordrResetForm.errors?.['passwordMatchValidator']&& passwordrResetForm.get('reenterPassword')?.touched"
+          >
+            <small> Passwords do not match. </small>
+          </mat-error>
+          <mat-error
+            *ngIf="
+              passwordrResetForm.get('reenterPassword')?.touched &&
+              passwordrResetForm.get('reenterPassword')?.hasError('required')
+            "
+          >
+            {{ passwordMatch }}
+          </mat-error>
+          <mat-error
+            *ngIf="
+              passwordrResetForm.get('reenterPassword')?.touched &&
+              passwordrResetForm.get('reenterPassword')?.hasError('minlength')
+            "
+          >
+            password shoulde be 5 digits
+          </mat-error>
+        </mat-form-field>
+
+        <div>
+          <button
+            mat-raised-button
+            color="primary"
+            [disabled]="passwordrResetForm.invalid"
+            (click)="updatePassword()"
+          >
+            UpdatePassword
+          </button>
         </div>
-
-        <form [formGroup]="passwordrResetForm">
-            <div class="fields">
-                <mat-form-field class="example-full-width" appearance="outline">
-                    <mat-label>UserName</mat-label>
-
-                    <input type="text" matInput formControlName="userName" />
-                    <mat-error *ngIf="
-                passwordrResetForm.get('userName')?.touched &&
-                passwordrResetForm.get('userName')?.errors
-              ">
-                        UserName is <strong>required</strong>
-                    </mat-error>
-                </mat-form-field>
-
-                <mat-form-field class="example-full-width" appearance="outline">
-                    <mat-label>Password</mat-label>
-                    <input type="password" matInput formControlName="password" />
-                    <mat-error *ngIf="
-                passwordrResetForm.get('password')?.touched &&
-                passwordrResetForm.get('password')?.errors
-              ">
-                        PassWord is <strong>required</strong>
-                    </mat-error>
-                </mat-form-field>
-
-                <div>
-                    <button mat-raised-button color="primary" (click)="updatePassword()">
-                        UpdatePassword
-                    </button>
-
-                </div>
-            </div>
-        </form>
-    </mat-card-content>
+      </div>
+    </form>
+  </mat-card-content>
 </mat-card>

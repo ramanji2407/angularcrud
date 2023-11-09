@@ -7,16 +7,21 @@
   
     <p>Category:{{productDetails.category}}</p>
   
-    <p>Comment:{{productDetails.comment}}</p>
+    <p>Comment:{{productDetails.freshness}}</p>
   
-    <p>Freshness:{{productDetails.freshness}}</p>
-  
-    <p>Name:{{productDetails.name}}</p>
+    <p>Product Name:{{productDetails.name}}</p>
   
     <p>Price:{{productDetails.price}}</p>
   
    <p>Date:{{productDetails.date|date}}</p>
+<p>PhoneNumbers:</p>
+   <ul *ngFor="let product of productDetails.phoneNumber">
+    <li >
+      {{ product }}
+    </li>
+  </ul>
+  
    <button mat-raised-button [routerLink]="['/dashboard/list']" color ="warn">Cancel</button>
 
-  
+
   </div>
